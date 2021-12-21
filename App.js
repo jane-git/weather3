@@ -1,28 +1,69 @@
 import { StatusBar } from 'expo-status-bar'; //status of watch, wifi, battery
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function App() {
   return (
     //layout size - To match the react/Adjust the size equally
     //default view : flex container
     //default of direction of flex container : column
-    //change to row (direction of flex container)
-    <View style ={{flex:1, flexDirection: "row"}}> 
-      <View style={{flex:1, backgroundColor:"tomato"}}> </View>
-      <View style={{flex:1, backgroundColor:"teal"}}> </View>
-      <View style={{flex:1, backgroundColor:"orange"}}> </View>
-
-      <Text>Hel..lo! </Text>
-      <StatusBar style="auto" />
+    <View style ={styles.container}>
+      <View style={styles.city}>
+        <Text style={styles.cityName}>Brisbane</Text>
+      </View>
+      <ScrollView style={styles.weather}>
+        <View style={styles.day}>
+          <Text style={styles.temp}>30</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>30</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>30</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>30</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }
 //create object of styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex:1, 
+    backgroundColor:"tomato"
+  },
+  city: {
+    flex: 1.2,
+    //backgroundColor:"blue",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cityName: {
+    fontSize: 68,
+    fontWeight: "500",
+  },
+  weather: {
+    flex: 3,
+    //backgroundColor: "skyblue",
+  },
+  day: {
+    flex:1,
+    //justifyContent: "center",
+    alignItems: "center",
+   // backgroundColor: "teal",
+  },
+  temp:{
+    marginTop: 50,
+    fontSize: 170,
+  },
+  description:{
+    marginTop: -30,
+    fontSize: 60,
   },
 });
