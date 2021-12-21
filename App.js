@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar'; //status of watch, wifi, battery
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text,View, ScrollView, Dimensions} from 'react-native';
 
+const {width:SCREEN_WIDTH} = Dimensions.get('window');
+console.log(SCREEN_WIDTH);
 export default function App() {
   return (
     //layout size - To match the react/Adjust the size equally
@@ -11,7 +13,7 @@ export default function App() {
       <View style={styles.city}>
         <Text style={styles.cityName}>Brisbane</Text>
       </View>
-      <ScrollView style={styles.weather}>
+      <ScrollView pagingEnabled horizontal contentContainerStyle={styles.weather}>
         <View style={styles.day}>
           <Text style={styles.temp}>30</Text>
           <Text style={styles.description}>Sunny</Text>
@@ -49,11 +51,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   weather: {
-    flex: 3,
-    //backgroundColor: "skyblue",
+    //flex: 3,
+   // backgroundColor: "skyblue",
   },
   day: {
-    flex:1,
+    width: SCREEN_WIDTH,
+   // flex:1,
     //justifyContent: "center",
     alignItems: "center",
    // backgroundColor: "teal",
